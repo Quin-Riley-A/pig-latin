@@ -16,9 +16,13 @@ function pigLatinConsonant(word) {
       continue;
     }
     word = word.slice(index, word.length);
-    return word.concat(slicedLetters.join("")+ "ay");
-    
+    if (slicedLetters[0] === "q") {
+      slicedLetters.push(word.charAt(index));
+      word = word.slice(1,word.length);
+    } else if (slicedLetters[-1] === "q" && slicedLetters[0] !== "q") {
+      
+    }
+
+    return word.concat(slicedLetters.join("")+ "ay"); 
   }
 }
-
-
